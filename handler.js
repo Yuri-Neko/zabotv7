@@ -624,9 +624,9 @@ export async function participantsUpdate({ id, participants, action }) {
             if (chat.welcome) {
                 let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata
                 for (let user of participants) {
-                    let pp = 'https://b.top4top.io/p_2289sc13f1.jpg'
+                    let pp = ''
                     try {
-                        pp = await this.profilePictureUrl(user, 'image')
+                        pp = 'https://b.top4top.io/p_2289sc13f1.jpg'
                     } catch (e) {
                     } finally {
                         text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || 'unknow') :
